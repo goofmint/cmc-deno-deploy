@@ -10,7 +10,7 @@ const url = 'https://sandbox.smtps.jp/api/v2/emails/send.json';
 // const url = 'https://post.deno.dev';
 serve(async (req: Request) => {
 	const json = await req.json();
-	console.log(json);
+	console.log(JSON.stringify(json));
   const to = [{
 		name: json.to.name,
 		address: json.to.address,
