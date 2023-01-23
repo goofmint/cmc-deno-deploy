@@ -32,10 +32,14 @@ serve((req: Request) => {
 		if (res.ok) {
 			return new Response(res.body);
 		} else {
-			return new Response(`Error: ${res.body}`);
+			return new Response(`Error: ${res.body}`, {
+				status: res.status,
+			});
 		}
   } catch (e) {
     // エラーの場合
-		return new Response(JSON.stringify(e));
+		return new Response(JSON.stringify(e), {
+			status: e.status,
+		});
   }
 }
