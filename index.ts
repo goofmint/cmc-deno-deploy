@@ -41,6 +41,7 @@ serve(async (req: Request) => {
 		}
   } catch (e) {
     // エラーの場合
+		console.error(e);
 		return new Response(JSON.stringify(e), {
 			status: e.status,
 		});
