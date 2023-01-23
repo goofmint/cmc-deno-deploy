@@ -42,4 +42,4 @@ serve((req: Request) => {
 			status: e.status,
 		});
   }
-}
+});
