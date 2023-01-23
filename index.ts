@@ -6,8 +6,9 @@ const from = {
 	name: '管理者',
 	address: 'info@mx.devcle.com',
 };
-const url = 'https://sandbox.smtps.jp/api/v2/emails/send.json';
-
+// const url = 'https://sandbox.smtps.jp/api/v2/emails/send.json';
+const url = 'https://post.deno.dev';
+// 
 serve(async (req: Request) => {
 	const json = await req.json();
   const to = [{
