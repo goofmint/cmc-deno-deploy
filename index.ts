@@ -24,6 +24,7 @@ serve(async (req: Request) => {
   const params = { api_user, api_key, to, from, subject, text };
   try {
     // 送信処理
+		console.log(params);
     const res: Response = await fetch(url, {
 			method: 'POST',
 			body: new Blob([JSON.stringify(params)]),
