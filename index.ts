@@ -8,11 +8,12 @@ const from = {
 };
 const url = 'https://sandbox.smtps.jp/api/v2/emails/send.json';
 
-serve((req: Request) => {
+serve(async (req: Request) => {
+	const json = await req.json();
   const to = [{
-    name: 'Atsushi',
-    address: 'atsushi@moongift.jp'
-  }];
+		name: json.to.name,
+		address: json.to.address,
+	}];
   const subject = 'テストメール';
   const text = `このメールはテストメールです。
   改行を入れます。
@@ -25,6 +26,7 @@ serve((req: Request) => {
     // 送信処理
     const res: Response = await fetch(url, {
 			method: 'POST',
+			body: new Blob([JSON.stringify(params)]),
 			headers: {
 				'Content-Type': 'application/json',
 			},
